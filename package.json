@@ -1,0 +1,29 @@
+{
+  "name": "template-api",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc",
+    "start": "serverless offline start --noPrependStageInUrl",
+    "start:dev": "serverless offline start --reloadHandler --noPrependStageInUrl",
+    "prettier": "prettier --write --ignore-unknown ."
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
+    "reflect-metadata": "^0.1.14"
+  },
+  "devDependencies": {
+    "@ebukaodini/scaffoldjs": "latest",
+    "@types/aws-lambda": "^8.10.136",
+    "@types/node": "^20.10.8",
+    "dotenv": "^16.3.1",
+    "prettier": "^3.1.1",
+    "serverless": "^3.38.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.3.1",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.3.3"
+  }
+}

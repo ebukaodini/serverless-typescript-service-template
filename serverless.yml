@@ -1,0 +1,45 @@
+app: template-service
+service: template-service
+frameworkVersion: "3"
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  architecture: x86_64
+  stage: dev
+  region: us-east-1
+  memorySize: 512
+  timeout: 30
+  stackName: template-service
+  deploymentMethod: changesets
+  environment:
+    NODE_ENV: ${env:NODE_ENV}
+  httpApi:
+    cors: true
+  iam:
+    role:
+      statements:
+      - Effect: Allow
+        Action:
+        # list the services you want yor service to have access to. e.g:
+        # - "dynamodb:*"
+        Resource: "*"
+
+plugins:
+- serverless-plugin-typescript
+- serverless-dotenv-plugin
+- serverless-offline
+
+custom:
+  esbuild:
+    watch:
+      pattern: "src/**/*.ts"
+      
+functions:
+  createUser:
+    handler: src/handlers/user/create.handler
+    events:
+    - http:
+        path: /api/v1/users
+        method: post
