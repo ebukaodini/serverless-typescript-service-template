@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
@@ -13,8 +14,8 @@ export const handler = async (
 ): Promise<APIGatewayProxyResult> => {
   try {
     const user = await UserRepo.delete(event.pathParameters.userId);
-    return response.success("User deleted", UserDto.toJson(user));
+    return response.success("User deleted.", UserDto.toJson(user));
   } catch (error: any) {
-    response.error("User not deleted!", error.message);
+    return response.error("User not deleted!", error.message);
   }
 };

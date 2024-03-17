@@ -1,5 +1,5 @@
 {
-  "name": "template-api",
+  "name": "sample-service",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,13 +9,13 @@
     "prettier": "prettier --write --ignore-unknown ."
   },
   "dependencies": {
+    "@ebukaodini/scaffoldjs": "latest",
     "aws-lambda": "^1.0.7",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "reflect-metadata": "^0.1.14"
   },
   "devDependencies": {
-    "@ebukaodini/scaffoldjs": "latest",
     "@types/aws-lambda": "^8.10.136",
     "@types/node": "^20.10.8",
     "dotenv": "^16.3.1",

@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
@@ -15,6 +16,6 @@ export const handler = async (
     const users = await UserRepo.findAll(); 
     return response.success("All users.", UserDto.toArray(users));
   } catch (error: any) {
-    response.error("Users not found!", error.message);
+    return response.error("Users not found!", error.message);
   }
 };

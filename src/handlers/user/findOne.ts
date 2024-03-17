@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {
   APIGatewayProxyEvent,
   APIGatewayProxyResult,
@@ -15,6 +16,6 @@ export const handler = async (
     const user = await UserRepo.findOne(event.pathParameters.userId);
     return response.success("User details.", UserDto.toJson(user));
   } catch (error: any) {
-    response.error("User not found!", error.message);
+    return response.error("User not found!", error.message);
   }
 };

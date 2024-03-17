@@ -1,3 +1,3 @@
-# express-typescript-api-template
+# serverless-typescript-service-template
 
-an express typescript api template
+a serverless typescript service template

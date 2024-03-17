@@ -8,7 +8,7 @@ export const validator = (Dto: any, group: string) => {
     try {
       if (!event.body) {
         return response.error(
-          "Request body is empty",
+          "Request body is empty!",
           undefined,
           HttpStatusCode.UnprocessableEntity
         );
@@ -34,10 +34,12 @@ export const validator = (Dto: any, group: string) => {
         );
       }
 
-      context.clientContext.Custom = {
-        ...context.clientContext.Custom,
-        validData: dtoData,
-      };
+      if (context.clientContext && context.clientContext.Custom) {
+        context.clientContext.Custom = {
+          ...context?.clientContext?.Custom,
+          validData: dtoData,
+        };
+      }
       return await next(event, context);
     } catch (error: any) {
       return response.error(
